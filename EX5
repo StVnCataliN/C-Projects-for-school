@@ -1,0 +1,37 @@
+// Rezolvare pt Ex5: a), b), c), d), f)
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    // Verificam primalitatea numarului
+    int n;
+    cin >> n;
+    int prim = 1;
+    for(int i = 2; i <= n / 2; ++i)
+        if(n % i == 0)
+            prim = 0;
+    if(prim == 1)
+        cout << "Numarul introdus este prim." << "\n";
+    else
+        cout << "Numarul introdus nu este prim." << "\n";
+    // Calculam suma divizorilor pozitivi ai lui n
+    int suma = 0, produs = 1;
+    for(int i = 1; i <= n; ++i){
+        if(n % i == 0){
+            suma = suma + i;
+            produs = produs * i;
+        }
+    }
+    cout << "Suma divizorilor lui n: " << suma << "\n";
+    cout << "Produsul divizorilor lui n: " << produs << "\n";
+    cout << "Suma divizorilor lui n fara 1 si el insusi: " << suma - 1 - n << "\n";
+    if (prim == 1)
+        cout << "Produsul divizorilor lui n fara 1 si el insusi: " << 0 << "\n";
+    else
+        cout << "Produsul divizorilor lui n fara 1 si el insusi: " << produs / n << "\n";
+
+    return 0;
+}
