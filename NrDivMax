@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n, rezultat, maxim = -9999999;
+    cin >> n;
+    for(int numar = n; numar >= 1; --numar){
+        int nrDiv = 2;
+        for(int divizori = 2; divizori <= numar / 2; ++divizori){
+            if(numar % divizori == 0)
+                ++nrDiv;
+        }
+        if(nrDiv >= maxim){
+            maxim = nrDiv;
+            rezultat = numar;
+        }
+    }
+    cout << rezultat;
+    return 0;
+}
